@@ -65,5 +65,5 @@ Every change enters the pipeline only through a reviewed, change-linked merge re
 
 ## AI Attribution
 - **Tool:** Claude (Anthropic)
-- **Date:** [today]
+- **Date:** 2026-10-11
 - **Human review:** Drafted for NovaPay; pending human review. Reviewer name and date to be recorded here.
