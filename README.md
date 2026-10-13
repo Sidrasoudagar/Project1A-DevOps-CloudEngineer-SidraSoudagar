@@ -1,1 +1,0 @@
-# Project1A-DevOps-CloudEngineer-SidraSoudagar
