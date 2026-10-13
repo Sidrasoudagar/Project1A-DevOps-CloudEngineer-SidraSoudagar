@@ -66,5 +66,5 @@ Produces a reproducible, signed build artefact and its SBOM on an ephemeral, iso
 
 ## AI Attribution
 - **Tool:** Claude (Anthropic)
-- **Date:** 2026-MM-DD
+- **Date:** 2026-10-11
 - **Human review:** Drafted for NovaPay; pending human review. Reviewer name and date to be recorded here.
