@@ -41,3 +41,4 @@ flowchart TD
 ```
 
 Traffic increases in phases (1 to 2%, 5 to 10%, 25 to 50%, 100%). If the canary fails the automated analysis or a Category A trigger fires, traffic returns to the stable version.
+
