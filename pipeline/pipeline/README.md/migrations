@@ -1,6 +1,0 @@
-# Pipeline Folder
-
-- `.github/workflows/` - CI/CD pipelines
-- `policies/` - OPA security policies
-- `scripts/` - Automation scripts
-- `migrations/` - Database migration scripts
