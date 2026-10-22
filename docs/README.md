@@ -42,7 +42,7 @@ The solution implements an 8-stage pipeline combining rigorous security scanning
 - Category A, B, and C rollback triggers.
 - Automated recovery flows and Prometheus alerts.
 
-### [07. Runbook & Playbook](../runbooks/README.md) *(Located in root `runbooks/` folder)*
+### [07. Runbook & Playbook](./07-runbook-playbook/README.md) 
 - 3 AM operational deployment runbook.
 - Incident response playbook and communication templates.
 
