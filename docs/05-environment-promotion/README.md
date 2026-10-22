@@ -7,4 +7,4 @@ This folder defines how code moves from Dev to Production safely.
 - **[promotion-flow.md](./promotion-flow.md)**: Mermaid diagram of the promotion pipeline.
 
 ## Related Files
-- The actual Helm configuration files (`values.yaml` and `values-production.yaml`) are located in the `pipeline/helm/` directory.
+- The actual Helm configuration files (`values.yaml` and `values-production.yaml`).
