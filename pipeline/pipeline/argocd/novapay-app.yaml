@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: novapay-production
+  namespace: argocd
+spec:
+  project: novapay
+  source:
+    repoURL: 'https://github.com/Sidrasoudagar/Project1A-DevOps-CloudEngineer-SidraSoudagar.git'
+    targetRevision: HEAD
+    path: pipeline/helm
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: novapay-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
