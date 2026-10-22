@@ -1,8 +1,0 @@
-# Production Overrides
-replicaCount: 5
-
-env:
-  - name: DB_HOST
-    value: "prod-db.novapay.internal"
-  - name: LOG_LEVEL
-    value: "WARN"
