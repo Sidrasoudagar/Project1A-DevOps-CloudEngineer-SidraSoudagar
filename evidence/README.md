@@ -3,9 +3,9 @@
 This folder contains the proof of work, simulations, and presentations.
 
 ## Contents
-- **[trc-presentation.md](./trc-presentation.md)**: The 20-slide outline for the Technology Risk Committee.
-- **[incident-simulation.md](./incident-simulation.md)**: The timeline of the Friday 5 PM disaster.
-- **[post-mortem-report.md](./post-mortem-report.md)**: The blameless RCA for the incident.
-- **[opa-test-results.txt](./opa-test-results.txt)**: Output of the OPA policy tests (PASS: 3/3).
-- **[self-assessment.md](./self-assessment.md)**: Self-assessment scores and matrix.
-- **[reflections.md](./reflections.md)**: 5 reflection questions answered.
+- **[trc-presentation.md](./trc-presentation.md)**: Outline for the 20-slide presentation to the Technology Risk Committee.
+- **[incident-simulation.md](./incident-simulation.md)**: Minute-by-minute timeline of the Friday 5 PM disaster.
+- **[post-mortem-report.md](./post-mortem-report.md)**: Root Cause Analysis (RCA) and action items for the incident.
+- **[test-results.txt](./test-results.txt)**: Output of the OPA policy tests.
+- **[self-assessment.md](./self-assessment.md)**: Self-assessment scores according to the Zetheta matrix.
+- **[reflections.md](./reflections.md)**: 5 detailed reflection questions.
