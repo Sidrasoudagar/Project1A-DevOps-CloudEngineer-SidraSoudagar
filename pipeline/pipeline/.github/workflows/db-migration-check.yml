@@ -1,0 +1,68 @@
+name: DB Migration Check
+
+on:
+  push:
+    paths:
+      - "pipeline/migrations/**"
+      - "pipeline/scripts/**"
+  pull_request:
+    paths:
+      - "pipeline/migrations/**"
+      - "pipeline/scripts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  migrate-and-verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: secret
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:secret@localhost:5432/postgres
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install psycopg2-binary cryptography
+
+      - name: Lint migrations
+        run: npx --yes squawk-cli pipeline/migrations/V*.sql
+
+      - name: Seed test data
+        run: psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f pipeline/scripts/seed_test_data.sql
+
+      - name: EXPAND
+        run: psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f pipeline/migrations/V1.0__expand_add_encrypted_email.sql
+
+      - name: MIGRATE (backfill)
+        run: |
+          echo "FERNET_KEY=$(python -c 'from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())')" >> "$GITHUB_ENV"
+          mkdir -p evidence
+
+      - name: Run backfill and verify
+        run: |
+          python pipeline/scripts/backfill_encrypted_email.py backfill --batch-size 5000 | tee evidence/backfill-run.txt
+          python pipeline/scripts/backfill_encrypted_email.py verify --sample-percent 1 | tee evidence/backfill-verify.txt
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: migration-evidence
+          path: evidence/
