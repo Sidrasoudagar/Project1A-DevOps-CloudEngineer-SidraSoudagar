@@ -1,0 +1,5 @@
+data.kubernetes.admission.test_missing_memory_denied: PASS (1.2ms)
+data.kubernetes.admission.test_privileged_container_denied: PASS (1.5ms)
+data.kubernetes.admission.test_safe_container_allowed: PASS (1.1ms)
+--------------------------------------------------------------------------------
+PASS: 3/3
