@@ -1,0 +1,40 @@
+name: Policy Tests
+
+on:
+  push:
+    paths:
+      - "pipeline/policies/**"
+  pull_request:
+    paths:
+      - "pipeline/policies/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  opa-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up OPA
+        uses: open-policy-agent/setup-opa@v2
+        with:
+          version: latest
+
+      - name: Check policy syntax
+        run: opa check --strict pipeline/policies/
+
+      - name: Run policy tests
+        run: |
+          mkdir -p evidence
+          opa test pipeline/policies/ -v | tee evidence/opa-test-results.txt
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: opa-test-results
+          path: evidence/opa-test-results.txt
