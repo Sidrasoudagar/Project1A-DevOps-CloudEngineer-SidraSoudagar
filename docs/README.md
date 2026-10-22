@@ -16,20 +16,40 @@ The solution implements an 8-stage pipeline combining rigorous security scanning
 
 ---
 
-## 🗺️ Navigation Guide
+## 📑 Table of Contents
 
-Click the links below to explore the deliverables:
+### [01. Pipeline Architecture](./01-pipeline-architecture/README.md)
+- The 8-stage pipeline design.
+- Stage-by-stage specifications (Build, SAST, DAST, etc.).
 
-- 📁 **[01 - Pipeline Architecture](./docs/01-pipeline-architecture/architecture.md)** - The 8-stage design and stage specifications.
-- 📁 **[02 - Deployment Strategies](./docs/02-deployment-strategies/deployment-strategy.md)** - Blue-Green, Canary, and Expand-Contract DB migrations.
-- 📁 **[03 - Compliance Gates](./docs/03-compliance-gates/compliance-gates.md)** - 7 automated gates mapped to RBI and PCI-DSS.
-- 📁 **[04 - Database Migration](./docs/04-database-migration/migration-strategy.md)** - Zero-downtime schema changes for 100M+ rows.
-- 📁 **[05 - Environment Promotion](./docs/05-environment-promotion/promotion-workflow.md)** - Dev → Staging → Pre-Prod → Prod workflow.
-- 📁 **[06 - Rollback Specification](./docs/06-rollback-specification/rollback-spec.md)** - Automated rollback categories and triggers.
-- 📁 **[07 - Runbook & Playbook](./runbooks/deployment-runbook.md)** - 3 AM operational procedures.
-- 📁 **[08 - Observability](./docs/08-observability/observability-strategy.md)** - DORA metrics and Grafana dashboards.
-- 📁 **[TRC Presentation](./evidence/trc-presentation.md)** - Committee presentation outline.
-- 📁 **[Incident Simulation](./evidence/incident-simulation-2026-10-16.md)** - Post-mortem of the Friday 5 PM disaster.
+### [02. Deployment Strategies](./02-deployment-strategies/README.md)
+- Blue-Green and Canary deployment flows.
+- Traffic routing and Expand-Contract database patterns.
+
+### [03. Compliance Gates](./03-compliance-gates/README.md)
+- The 10 automated regulatory gates (RBI & PCI-DSS).
+- OPA policies and exception workflows.
+
+### [04. Database Migration](./04-database-migration/README.md)
+- Zero-downtime Expand-Contract strategy.
+- SQL scripts and version compatibility matrix.
+
+### [05. Environment Promotion](./05-environment-promotion/README.md)
+- The 4-environment model (Dev → Staging → Pre-Prod → Prod).
+- Approval gates and data masking rules.
+
+### [06. Rollback Specification](./06-rollback-specification/README.md)
+- Category A, B, and C rollback triggers.
+- Automated recovery flows and Prometheus alerts.
+
+### [07. Runbook & Playbook](../runbooks/README.md) *(Located in root `runbooks/` folder)*
+- 3 AM operational deployment runbook.
+- Incident response playbook and communication templates.
+
+### [08. Observability](./08-observability/README.md)
+- DORA metrics and Grafana dashboard designs.
+- Alerting routing strategy.
+
 
 ---
 
