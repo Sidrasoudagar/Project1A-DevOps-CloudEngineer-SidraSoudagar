@@ -73,6 +73,10 @@ Only the EXPAND step runs in the commit-to-production path. The backfill and con
 - Backups: a verified backup or snapshot is taken before CONTRACT step B.
 
 ---
+## Related Deliverables
+- For the deployment strategies used during this migration, see [Deployment Strategies](../02-deployment-strategies/deployment-strategy.md).
+- The actual migration SQL scripts are located in `pipeline/migrations/`.
+---
 
 ## AI Attribution
 
