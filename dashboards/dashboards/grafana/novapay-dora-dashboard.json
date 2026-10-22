@@ -1,0 +1,70 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "title": "Deployment Frequency (Last 30 Days)",
+      "type": "stat",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "sum(increase(github_actions_deployments_total[30d]))",
+          "legendFormat": "Deployments"
+        }
+      ]
+    },
+    {
+      "title": "Lead Time for Changes (Hours)",
+      "type": "gauge",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "avg(github_actions_lead_time_hours)",
+          "legendFormat": "Avg Lead Time"
+        }
+      ]
+    },
+    {
+      "title": "Change Failure Rate (%)",
+      "type": "timeseries",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "(sum(increase(incidents_total[30d])) / sum(increase(github_actions_deployments_total[30d]))) * 100"
+        }
+      ]
+    },
+    {
+      "title": "MTTR (Minutes)",
+      "type": "stat",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "avg(pagerduty_incident_duration_minutes)"
+        }
+      ]
+    }
+  ],
+  "refresh": "5m",
+  "schemaVersion": 38,
+  "tags": ["novapay", "dora"],
+  "timezone": "browser",
+  "title": "NovaPay DORA Metrics",
+  "uid": "novapay-dora"
+}
