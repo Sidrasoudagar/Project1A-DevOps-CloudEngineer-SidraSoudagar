@@ -52,6 +52,11 @@ A rollback is not complete just because traffic was re-routed. The system must v
 - Automated synthetic login/checkout tests pass.
 
 ---
+## Related Deliverables
+- To see the pipeline stages where these triggers run, view [Pipeline Architecture](../01-pipeline-architecture/architecture.md).
+- For the Prometheus rules that fire these alerts, see `pipeline/scripts/prometheus-alerts.yaml`.
+
+---
 
 ## AI Attribution
 - **Tool used:** DeepSeek
